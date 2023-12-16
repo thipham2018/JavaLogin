@@ -1,5 +1,7 @@
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 public class LoginForm extends JDialog{
     private JTextField tfEmail;
@@ -17,6 +19,12 @@ public class LoginForm extends JDialog{
         setLocationRelativeTo(parent);
         setDefaultCloseOperation(DISPOSE_ON_CLOSE);
         setVisible(true);
+        btOK.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+
+            }
+        });
     }
     public static void main(String[] args) {
     LoginForm loginForm = new LoginForm(null);
