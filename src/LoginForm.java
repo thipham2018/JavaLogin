@@ -24,10 +24,18 @@ public class LoginForm extends JDialog{
             public void actionPerformed(ActionEvent e) {
                 String email =tfEmail.getText();
                 String password = String.valueOf(pfPassword.getPassword());
+
+                getAuthenticatedUser(email, password);
             }
         });
     }
+    private Users getAuthenticatedUser(String email, String password){
+        Users users = null;
+        return  users;
+    }
+
     public static void main(String[] args) {
     LoginForm loginForm = new LoginForm(null);
+
     }
 }
