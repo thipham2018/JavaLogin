@@ -26,6 +26,16 @@ public class LoginForm extends JDialog{
                 String password = String.valueOf(pfPassword.getPassword());
 
                 users = getAuthenticatedUser(email, password);
+
+                if (users != null) {
+                    dispose();
+                }
+                else {
+                    JOptionPane.showMessageDialog(LoginForm.this,
+                            "Email or Password Invalid",
+                            "try again",
+                            JOptionPane.ERROR_MESSAGE);
+                }
             }
         });
     }
