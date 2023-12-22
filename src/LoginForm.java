@@ -42,6 +42,13 @@ public class LoginForm extends JDialog{
     public Users users;
     private Users getAuthenticatedUser(String email, String password){
         Users users = null;
+
+        final String DB_URL = "jdbc:mysql://localhost:3306/login_schema";
+        final String USERNAME = "root";
+        final String PASSWORD = "Danang2018@";
+
+
+
         return  users;
     }
 
