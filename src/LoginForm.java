@@ -2,6 +2,8 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.sql.Connection;
+import java.sql.DriverManager;
 
 public class LoginForm extends JDialog{
     private JTextField tfEmail;
@@ -47,6 +49,12 @@ public class LoginForm extends JDialog{
         final String USERNAME = "root";
         final String PASSWORD = "Danang2018@";
 
+try { Connection conn = DriverManager.getConnection(DB_URL, USERNAME, PASSWORD);
+
+}
+catch (Exception e){
+    e.printStackTrace();
+}
 
 
         return  users;
