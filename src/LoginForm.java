@@ -57,7 +57,8 @@ try { Connection conn = DriverManager.getConnection(DB_URL, USERNAME, PASSWORD);
     Statement stmt = conn.createStatement();
     String sql = "SELECT * FROM users WHERE email=? AND password=?";
     PreparedStatement preparedStatement = conn.prepareStatement(sql);
-
+    preparedStatement.setString(1,email);
+    preparedStatement.setString(2,password);
 
 }
 catch (Exception e){
