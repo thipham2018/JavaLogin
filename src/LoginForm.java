@@ -2,10 +2,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.Statement;
+import java.sql.*;
 
 public class LoginForm extends JDialog{
     private JTextField tfEmail;
@@ -59,6 +56,12 @@ try { Connection conn = DriverManager.getConnection(DB_URL, USERNAME, PASSWORD);
     PreparedStatement preparedStatement = conn.prepareStatement(sql);
     preparedStatement.setString(1,email);
     preparedStatement.setString(2,password);
+
+    ResultSet resultSet = preparedStatement.executeQuery();
+
+    if (resultSet.next()) {
+        users = new Users();
+    }
 
 }
 catch (Exception e){
