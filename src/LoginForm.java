@@ -61,6 +61,11 @@ try { Connection conn = DriverManager.getConnection(DB_URL, USERNAME, PASSWORD);
 
     if (resultSet.next()) {
         users = new Users();
+        users.name = resultSet.getString("name");
+        users.email = resultSet.getString("email");
+        users.phone = resultSet.getString("phone");
+        users.address = resultSet.getString("adress");
+        users.password = resultSet.getString("password");
     }
 
 }
