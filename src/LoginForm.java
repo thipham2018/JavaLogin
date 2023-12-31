@@ -67,7 +67,8 @@ try { Connection conn = DriverManager.getConnection(DB_URL, USERNAME, PASSWORD);
         users.address = resultSet.getString("adress");
         users.password = resultSet.getString("password");
     }
-
+        stmt.close();
+        conn.close();
 }
 catch (Exception e){
     e.printStackTrace();
