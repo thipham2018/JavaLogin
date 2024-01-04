@@ -19,7 +19,7 @@ public class LoginForm extends JDialog{
         setModal(true);
         setLocationRelativeTo(parent);
         setDefaultCloseOperation(DISPOSE_ON_CLOSE);
-        setVisible(true);
+
         btOK.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -39,6 +39,15 @@ public class LoginForm extends JDialog{
                 }
             }
         });
+        btCancel.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                dispose();
+
+            }
+        });
+
+        setVisible(true);
     }
     public Users users;
     private Users getAuthenticatedUser(String email, String password){
@@ -74,12 +83,20 @@ catch (Exception e){
     e.printStackTrace();
 }
 
-
         return  users;
     }
 
     public static void main(String[] args) {
     LoginForm loginForm = new LoginForm(null);
-
+    Users users = loginForm.users;
+    if (users != null) {
+        System.out.println("Successful Authentication of: " + users.name);
+        System.out.println("        Email: " + users.email);
+        System.out.println("        Phone: " + users.phone);
+        System.out.println("        Address: " + users.address);
+    }
+    else {
+        System.out.println("Authentication canceled");
+    }
     }
 }
